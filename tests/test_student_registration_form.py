@@ -7,6 +7,7 @@ from selene import have, be
 from selene.support.shared import browser
 
 from test_data.user_data import student
+from utils import attachments
 
 
 @allure.tag("web")
@@ -48,3 +49,7 @@ def test_filling_registration_form():
             ('State and City', f'{student.state} {student.city}')
         ],
     )
+
+    attachments.add_html(browser)
+    attachments.add_screenshot(browser)
+    attachments.add_logs(browser)
