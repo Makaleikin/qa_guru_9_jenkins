@@ -29,7 +29,7 @@ def test_filling_registration_form():
     registration_form.type_date_of_birth(student.birth_day, student.birth_month, student.birth_year)
     registration_form.add_subjects(student.subjects)
     registration_form.add_hobbie_sport()
-    registration_form.upload_picture(student.picture_file)
+    #registration_form.upload_picture(student.picture_file)
     registration_form.set_current_address(student.current_address)
     registration_form.set_state(student.state)
     registration_form.set_city(student.city)
@@ -45,7 +45,7 @@ def test_filling_registration_form():
             ('Date of Birth', f'{student.birth_day} {student.birth_month},{student.birth_year}'),
             ('Subjects', 'History, Maths'),
             ('Hobbies', 'Sports'),
-            ('Picture', 'qapicture.png'),
+#            ('Picture', 'qapicture.png'),
             ('Address', student.current_address),
             ('State and City', f'{student.state} {student.city}')
         ],
