@@ -3,11 +3,12 @@ import pytest
 
 from demoqa_tests.model.pages import registration_form
 
-from selene import have, be
 from selene.support.shared import browser
-
 from test_data.user_data import student
 from utils import attachments
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 
 @allure.tag("web")
