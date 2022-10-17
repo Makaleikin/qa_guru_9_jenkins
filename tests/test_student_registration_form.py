@@ -1,14 +1,7 @@
 import allure
-import pytest
 
 from demoqa_tests.model.pages import registration_form
-
-from selene.support.shared import browser
 from test_data.user_data import student
-from utils import attachments
-
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 
 
 @allure.tag("web")
@@ -50,7 +43,3 @@ def test_filling_registration_form():
             ('State and City', f'{student.state} {student.city}')
         ],
     )
-
-    attachments.add_html(browser)
-    attachments.add_screenshot(browser)
-    attachments.add_logs(browser)

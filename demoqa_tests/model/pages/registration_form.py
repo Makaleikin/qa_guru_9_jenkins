@@ -2,13 +2,12 @@ import os
 from typing import Tuple
 
 import allure
-from selene import have, command, by
+from selene import have, command
 from selene.support.shared import browser
-from selene.support.shared.jquery_style import ss
+from selenium.webdriver.common.keys import Keys
 
 from demoqa_tests.model.contols import datepicker, dropdown, modal
 from tests.test_data.user_data import Subject
-from selenium.webdriver.common.keys import Keys
 
 
 @allure.step('Открываем страницу регистрации')
@@ -23,17 +22,21 @@ def given_opened():
 def set_first_name(first_name: str):
     browser.element('#firstName').type(first_name)
 
+
 @allure.step('Заполняем фамлиию')
 def set_last_name(last_name: str):
     browser.element('#lastName').type(last_name)
+
 
 @allure.step('Заполняем e-mail')
 def set_email(email: str):
     browser.element('#userEmail').type(email)
 
+
 @allure.step('Выбираем пол')
 def set_gender(gender):
     browser.all('[for^=gender-radio]').by(have.exact_text(gender.value)).first.click()
+
 
 @allure.step('Заполняем номер телефона')
 def set_phone_number(user_number: str):
@@ -43,38 +46,47 @@ def set_phone_number(user_number: str):
 def set_date_of_birth(birth_day, birth_month, birth_year):
     datepicker.select_date(birth_day, birth_month, birth_year)
 
+
 @allure.step('Указываем дату рождения, вводя значения в поле')
 def type_date_of_birth(day, month, year):
     browser.element('#dateOfBirthInput').send_keys(Keys.CONTROL + 'a').type(day + month + year).press_enter()
+
 
 @allure.step('Заполняем предметы')
 def add_subjects(values: Tuple[Subject]):
     for subject in values:
         browser.element('#subjectsInput').type(subject.value).press_enter()
 
+
 @allure.step('Выбираем хобби')
 def add_hobbie_sport():
     browser.element('[for="hobbies-checkbox-1"][class="custom-control-label"]').click()
+
 
 @allure.step('Загружаем изображение')
 def upload_picture(picture_file: str):
     browser.element('#uploadPicture').send_keys(os.path.abspath(picture_file))
 
+
 @allure.step('Указываем адрес')
 def set_current_address(current_address: str):
     browser.element('#currentAddress').type(current_address)
+
 
 @allure.step('Выбираем страну')
 def set_state(value: str):
     dropdown.select(browser.element('#state'), value)
 
+
 @allure.step('Выбираем город')
 def set_city(value: str):
     dropdown.select(browser.element('#city'), value)
 
+
 @allure.step('Жмем на кнопку подтверждения формы')
 def submit_form():
     browser.element('#submit').click()
+
 
 @allure.step('Проверяем, что заполненные данные присутствуют на финальной форме')
 def should_have_submitted(data):

@@ -7,6 +7,8 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+from utils import attachments
+
 
 @allure.step('Конфигурация теста')
 @pytest.fixture(scope='session', autouse=True)
@@ -33,3 +35,7 @@ def test_browser_configuration():
 
     browser.config.driver = driver
     yield
+    attachments.add_html(browser)
+    attachments.add_screenshot(browser)
+    attachments.add_logs(browser)
+    #attachments.add_video(browser)
