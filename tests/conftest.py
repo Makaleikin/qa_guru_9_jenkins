@@ -38,4 +38,4 @@ def test_browser_configuration():
     attachments.add_html(browser)
     attachments.add_screenshot(browser)
     attachments.add_logs(browser)
-    #attachments.add_video(browser)
+    # attachments.add_video(browser)

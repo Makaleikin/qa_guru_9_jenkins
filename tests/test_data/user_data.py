@@ -34,7 +34,7 @@ class User:
     subjects: Tuple[Subject] = (Subject.History, Subject.Maths)
     hobbies: Tuple[Hobby] = Hobby.Sports
     current_address: str = 'The Earth'
-    picture_file: str = './tests/test_data/qapicture.png'
+    picture_file: str = './test_data/qapicture.png'
     state: str = 'Haryana'
     city: str = 'Karnal'
 
