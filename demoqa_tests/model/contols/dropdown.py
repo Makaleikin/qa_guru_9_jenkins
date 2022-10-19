@@ -6,4 +6,4 @@ def select(element, option):
     element.click()
     browser.all('[id^=react-select][id*=-option-]').by(
         have.exact_text(option)
-    ).first.click()
+    ).first.press_enter()
