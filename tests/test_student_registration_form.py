@@ -12,7 +12,7 @@ from test_data.user_data import student
 def test_filling_registration_form():
     # GIVEN
     registration_form.given_opened()
-
+    registration_form.remove_advertisement()
     # WHEN
     registration_form.set_first_name(student.first_name)
     registration_form.set_last_name(student.last_name)
@@ -24,6 +24,7 @@ def test_filling_registration_form():
     registration_form.add_hobbie_sport()
     registration_form.upload_picture(student.picture_file)
     registration_form.set_current_address(student.current_address)
+    registration_form.remove_advertisement()
     registration_form.set_state(student.state)
     registration_form.set_city(student.city)
     registration_form.submit_form()

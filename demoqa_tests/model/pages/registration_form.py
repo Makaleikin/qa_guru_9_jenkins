@@ -12,10 +12,13 @@ from tests.test_data.user_data import Subject
 
 @allure.step('Открываем страницу регистрации')
 def given_opened():
-    browser.open('/automation-practice-form')
+    browser.open('https://demoqa.com/automation-practice-form')
+
+
+def remove_advertisement():
     ads = browser.all('[id^=google_ads][id$=container__]')
-    if ads.wait.until(have.size_greater_than_or_equal(3)):
-        ads.perform(command.js.remove)
+    #if ads.wait.until(have.size_greater_than_or_equal(>2)):
+    ads.perform(command.js.remove)
 
 
 @allure.step('Заполняем имя')
