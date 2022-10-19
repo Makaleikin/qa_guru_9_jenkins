@@ -16,9 +16,12 @@ def given_opened():
 
 
 def remove_advertisement():
-    ads = browser.all('[id^=google_ads][id$=container__]')
-    if ads.wait.until(have.size_less_than_or_equal(5)):
-        ads.perform(command.js.remove)
+    browser.all('[id^=google_ads][id$=container__],[id$=Advertisement]').with_(timeout=10)\
+        .should(have.size_less_than_or_equal(4))\
+        .perform(command.js.remove)
+#     ads = browser.all('[id^=google_ads][id$=container__]')
+#     if ads.wait.until(have.size_less_than_or_equal(5)):
+#         ads.perform(command.js.remove)
 
 
 @allure.step('Заполняем имя')
