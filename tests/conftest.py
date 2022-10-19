@@ -24,7 +24,7 @@ def test_browser_configuration():
         "browserVersion": "100.0",
         "selenoid:options": {
             "enableVNC": True,
-            "enableVideo": False
+            "enableVideo": True
         }
     }
     options.capabilities.update(selenoid_capabilities)
@@ -38,4 +38,4 @@ def test_browser_configuration():
     attachments.add_html(browser)
     attachments.add_screenshot(browser)
     attachments.add_logs(browser)
-    # attachments.add_video(browser)
+    attachments.add_video(browser)
