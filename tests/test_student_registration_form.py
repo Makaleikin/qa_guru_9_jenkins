@@ -1,4 +1,5 @@
 import allure
+from selene.support.shared import browser
 
 from demoqa_tests.model.pages import registration_form
 from test_data.user_data import student
@@ -25,6 +26,7 @@ def test_filling_registration_form():
     registration_form.upload_picture(student.picture_file)
     registration_form.set_current_address(student.current_address)
     registration_form.remove_advertisement()
+    registration_form.scroll_into()
     registration_form.set_state(student.state)
     registration_form.set_city(student.city)
     registration_form.submit_form()

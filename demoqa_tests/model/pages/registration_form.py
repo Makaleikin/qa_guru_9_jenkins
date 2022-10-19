@@ -76,6 +76,9 @@ def set_current_address(current_address: str):
     browser.element('#currentAddress').type(current_address)
 
 
+def scroll_into():
+    browser.element('#state').perform(command.js.scroll_into_view)
+
 @allure.step('Выбираем страну')
 def set_state(value: str):
     dropdown.select(browser.element('#state'), value)
