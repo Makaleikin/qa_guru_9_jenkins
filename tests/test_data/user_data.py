@@ -35,8 +35,8 @@ class User:
     hobbies: Tuple[Hobby] = Hobby.Sports
     current_address: str = 'The Earth'
     picture_file: str = './tests/test_data/qapicture.png'
-    state: str = 'Haryana'
-    city: str = 'Karnal'
+    state: str = 'NCR'
+    city: str = 'Delhi'
 
 
 student = User(first_name='Artem', gender=Gender.Male)
