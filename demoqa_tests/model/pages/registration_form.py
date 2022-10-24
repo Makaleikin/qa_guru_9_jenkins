@@ -78,8 +78,8 @@ def upload_picture(picture_file: str):
 def set_current_address(current_address: str):
     browser.element('#currentAddress').type(current_address)
 
-
-def scroll_into():
+@allure.step('Скроллим до выбора страны')
+def scroll_to_state():
     browser.element('#state').perform(command.js.scroll_into_view)
 
 @allure.step('Выбираем страну')
