@@ -166,7 +166,7 @@ docs/_build/
 # PyBuilder
 .pybuilder/
 target/
-
+./tests/test_data/user_data.py
 # Jupyter Notebook
 .ipynb_checkpoints
 
